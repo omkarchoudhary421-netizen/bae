@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love V1 💖</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:'Segoe UI',sans-serif;
+  overflow:hidden;
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp linear infinite;
+  opacity:0.7;
+}
+@keyframes floatUp{
+  from{transform:translateY(0) scale(1);opacity:1}
+  to{transform:translateY(-120vh) scale(1.5);opacity:0}
+}
+
+/* Main card */
+.card{
+  background:rgba(255,255,255,0.18);
+  backdrop-filter:blur(12px);
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+  color:#fff;
+  max-width:330px;
+  box-shadow:0 0 40px rgba(255,255,255,0.25);
+  animation:loveEntry 1.8s ease;
+}
+
+@keyframes loveEntry{
+  from{opacity:0;transform:scale(0.8)}
+  to{opacity:1;transform:scale(1)}
+}
+
+h1{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:16px;
+  line-height:1.5;
+}
+
+.loveIcon{
+  font-size:42px;
+  animation:pulse 1.5s infinite;
+  margin-bottom:10px;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+
+button{
+  margin-top:20px;
+  padding:12px 26px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  background:#ff2e63;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+button:hover{
+  background:#ff174d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="loveIcon">🐱💐</div>
+  <h1>Love V1 💖</h1>
+  <p>
+    This little moment  
+    is stitched with care, smiles,  
+    and a lot of love 🌸
+  </p>
+  <p>
+    If you’re here,  
+    you’re already special to me 💕
+  </p>
+  <button onclick="showLove()">Tap for Love 💝</button>
+</div>
+
+<script>
+/* Floating hearts generator */
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerText="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},400);
+
+/* Tap effect */
+function showLove(){
+  alert("You + Me = Always 💖");
+}
+</script>
+
+</body>
+</html>
